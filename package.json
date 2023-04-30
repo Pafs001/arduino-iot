@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "Nodejs",
