@@ -21,10 +21,11 @@ export const swaggerConfig = {
         },
         "basePath": {
           "enum": [
+            "https://combative-blue-dress.cyclic.app/api",
             "https://pafs001.github.io/arduino-iot/api",
             "http://localhost/api"
           ],
-          "default": "https://pafs001.github.io/arduino-iot/api"
+          "default": "https://combative-blue-dress.cyclic.app/api"
           }
 
       }
