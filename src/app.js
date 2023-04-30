@@ -43,7 +43,10 @@ app.use(express.static('./src/public', OPTIONS));
 app.use(router);
 
 app.get('', function (request, response) {
-  response.render('index', {title: 'Olá mundo!', text: 'novo'});
+  response.render('index', {
+    title: 'IOT Meter',
+    text: 'Leia a documentação e aproveite todos os recursos.'
+  });
 });
 
 app.get('/', function (request, response) {
