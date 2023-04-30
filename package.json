@@ -1,0 +1,43 @@
+{
+  "name": "arduino-iot",
+  "version": "1.0.0",
+  "description": "Rest API to get IOT data.",
+  "homepage": "https://pafs001.github.io/arduino-iot/",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "node --watch ./src/index.js",
+    "lint": "eslint ./src/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "keywords": [
+    "Nodejs",
+    "IOT",
+    "js",
+    "API"
+  ],
+  "author": "Philipe Siqueira",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "gh-pages": "^5.0.0",
+    "knex": "^2.4.2",
+    "sqlite3": "^5.1.6",
+    "swagger-ui-express": "^4.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pafs001/arduino-iot.git",
+    "directory": "Pafs001/arduino-iot"
+  },
+  "devDependencies": {
+    "sucrase": "^3.32.0"
+  }
+}

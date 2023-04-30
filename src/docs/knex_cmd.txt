@@ -1,0 +1,4 @@
+npx knex migrate:make create_register --knexfile ./src/database/config.js --env development
+
+npx knex migrate:make db_up --knexfile ./src/database/config.js --env development
+
