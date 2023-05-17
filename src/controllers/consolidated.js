@@ -2,17 +2,18 @@ import { connection } from '../database/config.js';
 
 export const ConsolidatedController = {
   create: async ( request, response ) => {
-    const { title, meter1, meter2, date} = request.body;
+    const { title, data } = request.body;
+    const final = data.map((v, i) => ({...v, title}));
+    console.log(final)
 
-
-    const data = await connection('consolidated')
-        .insert({ title, meter1, meter2, date})
+    const dt = await connection('consolidated')
+        .insert(final)
         .returning('*')
 
     return response
     .status(201)
     .type('application/json')
-    .json(data);
+    .json(dt);
   },
   readAll: async ( request, response ) => {
     const data = await connection('consolidated').select('*');

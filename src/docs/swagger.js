@@ -50,7 +50,7 @@ export const swaggerConfig = {
           "date": { "type": "string", "format": "date-time"},
         }
       },
-      "Consolidate": {
+      "Consolidated": {
         "type": "object",
         "properties": {
           "id": { "type": "integer"},
@@ -196,6 +196,70 @@ export const swaggerConfig = {
         ],
         "responses": {
           "200": { "description": "Success" },
+          "400": { "description": "Parameter error!" },
+        }
+      }
+    },
+    "/consolidated": {
+      "post": {
+        "summary": "Cadastro de Registros",
+        "description": "Rota responsável pela criação de registros",
+        "tags": ["Consolidated"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "$ref": "#/components/schemas/Register"
+              },
+              "example":
+                {
+                  "title": "Arrancada em Atibaia",
+                  "meter1": 44,
+                  "meter2": 37,
+                  "date": "2023-04-28T20:09:00"
+                }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "example":
+                {
+                  "title": "Arrancada em Atibaia",
+                  "data":[
+                    {
+                      "meter1": 44,
+                      "meter2": 37,
+                      "date": "2023-04-28T20:09:00"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": { "description": "Register Already exists!" },
+          "401": { "description": "Unauthorized" },
+        }
+      },
+      "get": {
+        "summary": "Listagem de Registros",
+        "description": "",
+        "tags": ["Consolidated"],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": { "$ref": "#/components/schemas/Consolidated" }
+                }
+              }
+            }
+          },
           "400": { "description": "Parameter error!" },
         }
       }
